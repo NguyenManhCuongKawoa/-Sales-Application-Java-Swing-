@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ChiTietHoaDon" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="482e53aa-e4a6-49e5-9571-56f7d9dc25cd">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="gui\DataAdapterMy.xml"/>
+	<parameter name="idBill" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT Sp.name, SP.trademark, SP.type, Sp.price, 
+		Bill.billName, Bill.phoneBill, Bill.amountProduct, Bill.priceTotal, Bill.addressNhanHang, Bill.describeBill, Bill.dateOfOrder, Bill.ngayNhanHang
+FROM dbo.ProductInformation AS SP JOIN dbo.Bill_Product ON  Sp.id = dbo.Bill_Product.productID
+JOIN dbo.Bill  ON Bill.id = Bill_Product.billID
+WHERE dbo.Bill.id =  $P{idBill}]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+	</field>
+	<field name="trademark" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="trademark"/>
+		<property name="com.jaspersoft.studio.field.label" value="trademark"/>
+	</field>
+	<field name="type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="type"/>
+		<property name="com.jaspersoft.studio.field.label" value="type"/>
+	</field>
+	<field name="price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="price"/>
+		<property name="com.jaspersoft.studio.field.label" value="price"/>
+	</field>
+	<field name="billName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="billName"/>
+		<property name="com.jaspersoft.studio.field.label" value="billName"/>
+	</field>
+	<field name="phoneBill" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="phoneBill"/>
+		<property name="com.jaspersoft.studio.field.label" value="phoneBill"/>
+	</field>
+	<field name="amountProduct" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="amountProduct"/>
+		<property name="com.jaspersoft.studio.field.label" value="amountProduct"/>
+	</field>
+	<field name="priceTotal" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="priceTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="priceTotal"/>
+	</field>
+	<field name="addressNhanHang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="addressNhanHang"/>
+		<property name="com.jaspersoft.studio.field.label" value="addressNhanHang"/>
+	</field>
+	<field name="describeBill" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="describeBill"/>
+		<property name="com.jaspersoft.studio.field.label" value="describeBill"/>
+	</field>
+	<field name="dateOfOrder" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dateOfOrder"/>
+		<property name="com.jaspersoft.studio.field.label" value="dateOfOrder"/>
+	</field>
+	<field name="ngayNhanHang" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="ngayNhanHang"/>
+		<property name="com.jaspersoft.studio.field.label" value="ngayNhanHang"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="10" width="461" height="41" uuid="25c69bcd-9d2f-4044-9480-56c787176636"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font fontName="Times New Roman" size="30"/>
+				</textElement>
+				<text><![CDATA[Danh Sách Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="50" width="291" height="31" uuid="9b08eb89-c2d1-4217-bb4c-4815b2848c0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Created by Nguyễn Mạnh Cường]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="80" width="600" height="1" uuid="9e8e60a1-c2d1-4936-b931-5817890fc649"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="201" height="25" uuid="f54726ec-e92e-43d2-a90a-c1494c31abf3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[A) Thông Tin Hóa Đơn]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="266" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="21" uuid="6f962073-f4c1-4be5-bff3-de7908d85524"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Bill Name: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="0" width="191" height="21" uuid="4af7f2b3-1a26-4ff1-9b1a-ae4b1540ea0e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="0" width="50" height="21" uuid="5c313ece-01f2-408d-8cf8-27dcfcf168f2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Phone: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="0" width="161" height="21" uuid="c486054a-f896-42e8-8306-62d149a5e608"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phoneBill}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="130" height="21" uuid="380948c8-70e0-45e0-abe9-514889146593"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Số Lượng Sản Phẩm: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="30" width="130" height="21" uuid="db004085-62ee-4d2d-8c74-9fa83cf606d1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountProduct}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="30" width="70" height="21" uuid="7ae8f294-768e-4456-9051-3f45529c0962"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Tổng Tiền: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="30" width="191" height="21" uuid="732fc0ab-1380-4f0a-b8db-32d8154a03e8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{priceTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="70" height="21" uuid="dbe608ba-cdc3-467b-b80e-748f5943a993"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Address: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="90" width="471" height="21" uuid="998048eb-e3dd-49d9-b2f0-3d589567fb65"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addressNhanHang}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="101" height="21" uuid="ddb73dc1-9c17-491f-9fa3-4788bfe76851"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Mô Tả:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="141" width="551" height="39" uuid="8ffe8e8a-b4e2-4a81-8874-88bdd479e333"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{describeBill}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-3" y="200" width="201" height="26" uuid="31f82b3c-0b94-4c99-ab2f-a886b42f9315"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[B) Danh Sách Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="201" height="21" uuid="557ed7bc-8cc9-464e-9504-47d089a8bbfe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Name Product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="240" width="130" height="21" uuid="94ead714-d5ee-4a3f-ad66-2ab02409957c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Trademark]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="240" width="102" height="21" uuid="350f89f9-bed4-4a9b-a22a-b2ad35c4c7c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="240" width="130" height="21" uuid="8ac5a523-8fdc-4713-9141-350064132629"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<line>
+				<reportElement x="329" y="239" width="1" height="23" uuid="69f0491b-14ce-4bbe-8293-81113ae5f9e5"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="431" y="241" width="1" height="21" uuid="aaa141a7-3338-45a7-8327-28b24a123c7d"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="201" y="240" width="1" height="21" uuid="e79650b2-21aa-4219-9107-7fbb1df6db8f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="261" width="560" height="1" uuid="903ebef2-91f7-489a-8cfa-94e2b24d9d6f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="60" width="101" height="21" uuid="bf8f99bd-a00d-4ccb-96aa-e67bf39282a7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Ngày Đặt Hàng:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="60" width="160" height="21" uuid="47b84f9a-2521-438d-8bb2-dc5351815bc7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateOfOrder}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="60" width="110" height="22" uuid="7376de8c-96a7-4948-aec5-2897625be06b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[_Ngày Nhận Hàng: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="60" width="161" height="21" uuid="7bb044c0-ff96-4bf3-9fca-ef39b6be465b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngayNhanHang}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="190" width="600" height="1" uuid="c51eaba0-1211-4bd0-b488-3044a6ae1248"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="201" height="21" uuid="efd16f81-2938-449d-97fe-7f6cfd8dd7ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="128" height="21" uuid="b3152e32-cb19-4ab4-ba73-fe3f464d7c8b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{trademark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="100" height="21" uuid="080966da-3793-4650-9c4a-0844e8a23eb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="130" height="21" uuid="e08e815d-b303-4005-82d7-39f1f400663b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="560" height="1" uuid="f8b58fb1-8830-4163-89c3-9271c6d33139"/>
+			</line>
+			<line>
+				<reportElement x="330" y="0" width="1" height="21" uuid="94533e16-8703-412a-aa9e-a8b01092e09c"/>
+			</line>
+			<line>
+				<reportElement x="431" y="0" width="1" height="22" uuid="79cbd15f-4a10-498f-a5d8-5e2a26c81210"/>
+			</line>
+			<line>
+				<reportElement x="200" y="0" width="1" height="22" uuid="6c9bf1b8-fe78-4541-aed5-f200ec4765e1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
